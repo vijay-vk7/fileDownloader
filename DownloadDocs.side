@@ -1,0 +1,110 @@
+{
+  "id": "7132e33a-07c7-4a8d-83fe-01f23a1c1a4b",
+  "version": "2.0",
+  "name": "DownloadDocs",
+  "url": "https://www.tnpsc.gov.in/English/press_releases.aspx",
+  "tests": [{
+    "id": "aa35d586-c3cf-4737-9d7b-651f2a94a33f",
+    "name": "TNPSC",
+    "commands": [{
+      "id": "f3832bb5-b973-4ea1-91e4-617126c63643",
+      "comment": "",
+      "command": "open",
+      "target": "https://www.tnpsc.gov.in/English/press_releases.aspx",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "45cbd211-a549-454b-952f-33a67d220191",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1312x819",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "477ba18b-59c5-4618-bac9-c7e185829b83",
+      "comment": "",
+      "command": "echo",
+      "target": "Id of last downloded document from TNPSC website is assumed to be 26/2024",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "718b34d7-dc63-4245-8496-dd589384a713",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1",
+      "targets": [],
+      "value": "row_number"
+    }, {
+      "id": "7416b2de-ed33-42cf-b4c3-b4dece3c451b",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6e00bd84-a666-44b7-a869-ec68756a93fa",
+      "comment": "",
+      "command": "storeText",
+      "target": "//h2[text() = 'PRESS RELEASES']/following-sibling::div[1]/table/tbody/tr[${row_number}]/td[1]",
+      "targets": [],
+      "value": "doc_id"
+    }, {
+      "id": "aecd8953-2056-46aa-a517-ea1bf6f8374e",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${doc_id}.split('/')[0]",
+      "targets": [],
+      "value": "doc_id"
+    }, {
+      "id": "fdd6b902-731c-440b-a395-11a763236db4",
+      "comment": "",
+      "command": "click",
+      "target": "//h2[text() = 'PRESS RELEASES']/following-sibling::div[1]/table/tbody/tr[${row_number}]/td[4]/a",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2b682d17-4b07-4a11-8b9d-1ff8567be6f5",
+      "comment": "",
+      "command": "pause",
+      "target": "1000",
+      "value": ""
+    },{
+      "id": "477ba18b-59c5-4618-bac9-c7e185829b83",
+      "comment": "",
+      "command": "echo",
+      "target": "Initiated the downloaded for new document with id ${doc_id}/20224 from TNPSC website",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "194b14e5-ca66-4550-864d-7d5da823007d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${row_number}+1",
+      "targets": [],
+      "value": "row_number"
+    }, {
+      "id": "f7d201e4-218a-4f52-be96-9a3a5fd326c0",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${doc_id} > 27",
+      "targets": [],
+      "value": ""
+    },{
+      "id": "2b682d17-4b07-4a11-8b9d-1ff8567be6f5",
+      "comment": "",
+      "command": "pause",
+      "target": "3000",
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "31a5da17-e0b9-40b5-b44d-1a41c4a56851",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://www.tnpsc.gov.in/", "https://www.tnpsc.gov.in/English/press_releases.aspx"],
+  "plugins": []
+}
